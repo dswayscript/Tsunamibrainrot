@@ -1,0 +1,108 @@
+local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
+
+local Window = Rayfield:CreateWindow({
+    Name = "Tsunami Brainrot Hub",
+    LoadingTitle = "Tsunami Brainrot Hub",
+    LoadingSubtitle = "by anh Duy",
+    ConfigurationSaving = {Enabled = false},
+    Discord = {Enabled = false},
+    KeySystem = false
+})
+
+-- Hàm load an toàn
+local function SafeLoad(url, name)
+    Rayfield:Notify({
+        Title = "Đang mở hub",
+        Content = name,
+        Duration = 4
+    })
+
+    local success, result = pcall(function()
+        return game:HttpGet(url)
+    end)
+
+    if not success or not result or result == "" then
+        Rayfield:Notify({
+            Title = "Lỗi tải",
+            Content = "Không lấy được script",
+            Duration = 5
+        })
+        return
+    end
+
+    local runSuccess, err = pcall(function()
+        loadstring(result)()
+    end)
+
+    if not runSuccess then
+        Rayfield:Notify({
+            Title = "Callback Error",
+            Content = err,
+            Duration = 6
+        })
+    end
+end
+
+-- Tab No Key
+local NoKey = Window:CreateTab("No Key", 4483362458)
+
+NoKey:CreateButton({
+    Name = "Lehungvinh Hub",
+    Description = "Giúp lấy brainrot và lucky dễ dàng",
+    Callback = function()
+        SafeLoad(
+            "https://luacrack.site/index.php/ledungvinh/raw/Scriptthoatkhoisongthan",
+            "Lehungvinh Hub"
+        )
+    end
+})
+
+NoKey:CreateButton({
+    Name = "OsakaTP2 Hub",
+    Description = "Nhiều chức năng",
+    Callback = function()
+        SafeLoad(
+            "https://raw.githubusercontent.com/osakaTP2/OsakaTP2/main/Escape%20tsunami%20for%20brainrotsMONEYV5",
+            "OsakaTP2 Hub"
+        )
+    end
+})
+
+NoKey:CreateButton({
+    Name = "Cyrus Hub",
+    Description = "Loader đa chức năng",
+    Callback = function()
+        SafeLoad(
+            "https://raw.githubusercontent.com/CyrusOffc/scriptcyrus/refs/heads/main/roblox/loader.lua",
+            "Cyrus Hub"
+        )
+    end
+})
+
+-- Tab Keyless
+local Keyless = Window:CreateTab("Keyless", 4483362458)
+
+Keyless:CreateButton({
+    Name = "ARCADE",
+    Description = "ticket, console magnet",
+    Callback = function()
+        SafeLoad(
+            "https://api.jnkie.com/api/v1/luascripts/public/840ee45f9c675db266286c744aaf61b180dc027589cd445a629801e4e2a92a03/download",
+            "ARCADE"
+        )
+    end
+})
+
+-- Tab Visual
+local Visual = Window:CreateTab("Visual", 4483362458)
+
+Visual:CreateButton({
+    Name = "Redyn",
+    Description = "Visual",
+    Callback = function()
+        SafeLoad(
+            "https://redyn.vercel.app/Loader/Visual",
+            "Redyn"
+        )
+    end
+})
